@@ -11,25 +11,25 @@ workflows:
         - pattern: '*'
           include: true
     scripts:
-      - name: Purge totale des caches et des fichiers de configuration obsolètes
+      - name: Nettoyage radical et suppression de tout l historique natif
         script: |
           rm -rf android ios build .dart_tool .metadata
-          flutter clean
-      - name: Recréation propre du projet Android (Architecture V2 moderne)
+          flutter pub cache clean --force || true
+      - name: Regénération propre de l architecture Android moderne (Embedding V2)
         script: |
           flutter create . --platforms=android --project-name=bxremote
-      - name: Autorisation du trafic HTTP local (Cleartext Traffic)
+      - name: Autorisation automatique du trafic HTTP local
         script: |
           if [ -f "android/app/src/main/AndroidManifest.xml" ]; then
             sed -i '' 's/<application/<application android:usesCleartextTraffic="true"/g' android/app/src/main/AndroidManifest.xml
           fi
-      - name: Récupération des dépendances Flutter
+      - name: Restauration des dépendances du projet
         script: |
           flutter pub get
-      - name: Génération de l icône de l application
+      - name: Application de l icone personnalisée
         script: |
           dart run flutter_launcher_icons || true
-      - name: Compilation finale de l APK Release
+      - name: Compilation de l APK Release final
         script: |
           flutter build apk --release
     artifacts:

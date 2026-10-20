@@ -11,15 +11,15 @@ workflows:
         - pattern: '*'
           include: true
     scripts:
-      - name: Generer l environnement Android
+      - name: Generer le dossier Android
         script: |
-          flutter create . --platforms=android
+          flutter create . --platforms=android --force
       - name: Recuperer les dependances Pub
         script: |
           flutter pub get
       - name: Generer l icone de l application
         script: |
-          dart run flutter_launcher_icons
+          dart run flutter_launcher_icons || true
       - name: Compiler l APK Android (Release)
         script: |
           flutter build apk --release

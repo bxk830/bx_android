@@ -1,7 +1,7 @@
 workflows:
   android-build:
-    name: Android APK Build
-    instance_type: linux_x2
+    name: Android APK Build (macOS)
+    instance_type: mac_mini_m2
     environment:
       flutter: stable
     triggering:

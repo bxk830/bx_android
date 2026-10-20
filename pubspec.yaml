@@ -1,5 +1,5 @@
 name: bxremote
-description: Application Android et iOS de controle a distance pour PC en local.
+description: Application Android de controle a distance pour PC en local.
 version: 1.0.1
 
 environment:
@@ -20,4 +20,3 @@ flutter_launcher_icons:
   android: true
   ios: false
   image_path: "assets/icon.png"
-  remove_alpha_ios: true

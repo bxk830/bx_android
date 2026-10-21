@@ -17,7 +17,7 @@ workflows:
           flutter pub cache clean --force || true
       - name: Regénération propre de l architecture Android avec package personnalisé
         script: |
-          flutter create . --platforms=android --project-name=BxRemote --org=com.bxremote
+          flutter create . --platforms=android --project-name=bxremote --org=com.bxremote
       - name: Autorisation automatique du trafic HTTP local
         script: |
           if [ -f "android/app/src/main/AndroidManifest.xml" ]; then
